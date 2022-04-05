@@ -2,10 +2,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Background } from '../components/Background';
+import { theme } from '../global/styles/theme';
 
 import { Home } from '../screens/Home'
 import { SignIn } from '../screens/SignIn';
-
+import { AppointmentDetails } from '../screens/AppointmentDetails';
 const Stack = createNativeStackNavigator();
 
 export function AuthRoutes() {
@@ -20,7 +21,7 @@ export function AuthRoutes() {
                         options={{
                             headerShown: false,
                             contentStyle: {
-                                backgroundColor: 'transparent'
+                                backgroundColor: theme.colors.secondary100
                             }
                         }}
                     />
@@ -31,6 +32,17 @@ export function AuthRoutes() {
                             headerShown: false,
                             contentStyle: {
                                 backgroundColor: 'transparent'
+                            }
+                        }}
+                    />
+
+                    <Stack.Screen 
+                        name="AppointmentDetails"
+                        component={AppointmentDetails}
+                        options={{
+                            headerShown: false,
+                            contentStyle: {
+                                backgroundColor: theme.colors.secondary100
                             }
                         }}
                     />
