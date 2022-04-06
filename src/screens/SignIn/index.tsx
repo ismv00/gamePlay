@@ -16,7 +16,6 @@ type authScreenProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
 export function SignIn() {
 
     const navigation = useNavigation<authScreenProp>();
-
     function HandleTeste() {
         navigation.navigate('Home')
     }
