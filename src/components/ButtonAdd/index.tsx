@@ -8,7 +8,7 @@ type Props = RectButtonProps;
 
 export function ButtonAdd({...rest} : Props) {
     return(
-        <RectButton 
+        <RectButton {...rest}
             style={styles.container}
         >
             <MaterialCommunityIcons 
