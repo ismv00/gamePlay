@@ -18,7 +18,14 @@ export const styles = StyleSheet.create({
         fontSize: 13
     },
     status : {
-        
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    bulletStatus: {
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        marginRight: 9
     }
     
 });

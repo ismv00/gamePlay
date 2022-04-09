@@ -1,5 +1,6 @@
 export type RootStackParamList = {
     Home: undefined;
     SignIn: undefined;
-    AppointmentDetails: undefined
+    AppointmentDetails: undefined;
+    AppointmentCreate: undefined;
     };
