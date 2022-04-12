@@ -1,4 +1,4 @@
-import { Alert, Image, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -9,6 +9,7 @@ import illustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/ButtonIcon';
 
 import { Background } from '../../components/Background';
+import { useAuth } from '../../hooks/auth';
 
 
 type authScreenProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
@@ -16,7 +17,10 @@ type authScreenProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
 export function SignIn() {
 
     const navigation = useNavigation<authScreenProp>();
-    function HandleTeste() {
+
+    const { user } = useAuth();
+
+    function HandleSignIn() {
         navigation.navigate('Home')
     }
 
@@ -39,7 +43,7 @@ export function SignIn() {
 
                     <ButtonIcon 
                         title="Entrar com o Discord" 
-                        onPress={HandleTeste}   
+                        onPress={HandleSignIn}   
                     />
                 </View>
             </View>
