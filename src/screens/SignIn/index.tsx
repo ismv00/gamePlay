@@ -1,9 +1,5 @@
-import { Image, Text, View } from 'react-native';
+import { Alert, Image, Text, View } from 'react-native';
 import { styles } from './styles';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-import { RootStackParamList } from '../interfaces/RouteTypes';
 
 import illustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/ButtonIcon';
@@ -11,17 +7,15 @@ import { ButtonIcon } from '../../components/ButtonIcon';
 import { Background } from '../../components/Background';
 import { useAuth } from '../../hooks/auth';
 
-
-type authScreenProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
-
 export function SignIn() {
+    const { user, signIn } = useAuth();
 
-    const navigation = useNavigation<authScreenProp>();
-
-    const { user } = useAuth();
-
-    function HandleSignIn() {
-        navigation.navigate('Home')
+    async function HandleSignIn() {
+        try {
+            await signIn();
+        } catch (error) {
+            Alert.alert(error)
+        }
     }
 
     return (
