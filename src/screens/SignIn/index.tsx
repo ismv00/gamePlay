@@ -1,4 +1,4 @@
-import { Alert, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, Image, Text, View } from 'react-native';
 import { styles } from './styles';
 
 import illustrationImg from '../../assets/illustration.png';
@@ -6,9 +6,10 @@ import { ButtonIcon } from '../../components/ButtonIcon';
 
 import { Background } from '../../components/Background';
 import { useAuth } from '../../hooks/auth';
+import { theme } from '../../global/styles/theme';
 
 export function SignIn() {
-    const { user, signIn } = useAuth();
+    const { loading, signIn } = useAuth();
 
     async function HandleSignIn() {
         try {
@@ -35,10 +36,15 @@ export function SignIn() {
                         favoritos com seus amigos
                     </Text>
 
-                    <ButtonIcon 
+                    {
+                        loading ? <ActivityIndicator color={theme.colors.primary}/>
+                        :
+                        <ButtonIcon 
                         title="Entrar com o Discord" 
                         onPress={HandleSignIn}   
-                    />
+                        />
+                    }
+
                 </View>
             </View>
         </Background>

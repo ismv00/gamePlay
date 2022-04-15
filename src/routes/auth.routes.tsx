@@ -5,7 +5,6 @@ import { Background } from '../components/Background';
 import { theme } from '../global/styles/theme';
 
 import { Home } from '../screens/Home'
-import { SignIn } from '../screens/SignIn';
 import { AppointmentDetails } from '../screens/AppointmentDetails';
 import { AppointmentCreate } from '../screens/AppointmentCreate';
 
@@ -17,16 +16,6 @@ export function AuthRoutes() {
         <Background>
             <NavigationContainer  independent={true}>
                 <Stack.Navigator >
-                    <Stack.Screen 
-                        name="SignIn"
-                        component={SignIn}
-                        options={{
-                            headerShown: false,
-                            contentStyle: {
-                                backgroundColor: theme.colors.secondary100
-                            }
-                        }}
-                    />
                     <Stack.Screen 
                         name="Home"
                         component={Home}
